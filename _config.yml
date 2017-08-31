@@ -84,4 +84,6 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/joeyac/joeyac.github.io.git
+  branch: master
