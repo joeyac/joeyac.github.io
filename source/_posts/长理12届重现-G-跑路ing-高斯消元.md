@@ -13,6 +13,8 @@ tags:
 
 保证在每个位置的概率收敛，求最大概率的那个位置的概率。
 
+<!-- more -->
+
 ## 链接
 [G-跑路ing](https://www.nowcoder.com/acm/contest/submit/fd8e9451406b4ef8bdeb27c0e2d4cd6b?ACMContestId=1&tagId=4)
 
