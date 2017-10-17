@@ -2,11 +2,14 @@
 title: Friends
 date: 2017-08-31 19:51:03
 ---
-| ALL |
-|:-------------:|
-| [Keith Schwarz](http://www.keithschwarz.com/)      |
-| [oldj](https://oldj.net/)     |
-| [李同学](https://virusdefender.net/) | 
-| [莫与](http://dongshuyan.top/) | 
-| [WXH](http://blog.csdn.net/wxh010910) (OI)|
+| NAME | NOTE |
+|:-------------:|:-------------:|
+| [Keith Schwarz](http://www.keithschwarz.com/)      | |
+| [oldj](https://oldj.net/)     | |
+| [李同学](https://virusdefender.net/) | qduoj开发者 |
+| [莫与](http://dongshuyan.top/) | 言董 |
+| [Owly](http://owly.space/blog/amazing) | |
+| [Miskcoo](http://blog.miskcoo.com/) | FFT |
+| [candy99](http://www.cnblogs.com/candy99/) | OI选手 $ \mid $ 数学|
+| [WXH](http://blog.csdn.net/wxh010910) | OI选手 |
 
