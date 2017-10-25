@@ -13,6 +13,12 @@ github复制专家，stackoverflow资深搜索师。
 
 一个有梦想的 ACM 蒟蒻。
 
+- 2016年ICPC沈阳站铁牌(solved 3, Place 82)
+- 2016年ICPC北京站站铜牌(solved 4, Place 56)
+- 2016年ICPC China-Final铜牌(打星)
+- 2017年ICPC西安邀请赛金牌(solved 8, Place 16)
+- 2017年ICPC沈阳站银牌(solved 6, Place 21)
+
 现大三。
 <!--more-->
 
