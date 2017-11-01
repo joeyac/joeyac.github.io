@@ -17,7 +17,8 @@ github复制专家，stackoverflow资深搜索师。
 - 2016年ICPC北京站站铜牌(solved 4, Place 56)
 - 2016年ICPC China-Final铜牌(打星)
 - 2017年ICPC西安邀请赛金牌(solved 8, Place 16)
-- 2017年ICPC沈阳站银牌(solved 6, Place 21)
+- 2017年ICPC沈阳站银牌第三(solved 6, Place 21)
+- 2017年ICPC西安站银牌第二(solved 6, Place 40)
 
 现大三。
 <!--more-->
