@@ -4,15 +4,13 @@ date: 2017-10-30 18:40:35
 ---
 
 <script>
-    if("letters"==prompt("请输入密码"))
-    {
-        alert("正确");
-    }
-    else
-    {
-        alert("错误");
-        location="http://blog.jingwei.site";
-    }
+    (function(){
+        if("letters" !== prompt("请输入密码"))
+        {
+            alert("密码错误！");
+            history.back();
+        }
+    })();
 </script>
 
 # CODERFORCES RUSH
