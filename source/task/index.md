@@ -62,7 +62,7 @@ or
 - [x] 批量导入账号
 - [x] 测试比赛功能（主要看打星）
 - [x] 讨论版功能
-- [ ] 导入账号并且添加小组
+- [x] 导入账号并且添加小组
 - [ ] 发气球
 - [ ] 滚榜
 
@@ -121,3 +121,25 @@ r'^contest/(?P<contest_id>\d+)/posts/$'
 r'^contest/(?P<contest_id>\d+)/post/(?P<contest_post_id>\d+)/$'
 r'^contest/(?P<contest_id>\d+)/reply/(?P<contest_reply_id>\d+)/$'
 ```
+
+#### 全局通知2.0:
+
+小组（Group）是频道（Channel）的集合
+
+ws_receive(message):
+	
+
+客户端收到提醒之后，返回一个确认收到的标志，然后更新被通知的缓存，断开连接的时候更新数据库
+
+bug1: 登录之后登出连接计数器不会减少
+
+考虑修改为，redis只存储每个用户的时间戳，连接上socket之后直接查询该用户的时间戳，将需要下发的通知下发，收到消息后返回一个成功收到消息的标志，更新被通知的时间（如果时间比redis里的大则通知），不要加计数器
+
+
+        now = timezone.now()
+        timestamp = time.mktime(now.timetuple())
+        last_time = datetime.fromtimestamp(last_timestamp).replace(tzinfo=utc)
+        
+        
+    daphne oj.asgi:channel_layer -b 0.0.0.0 -p 8000 -v2
+    python manage.py runworker -v2

@@ -19,6 +19,7 @@ github复制~~专家~~，stackoverflow~~资深~~搜索师。
 - 2017年ICPC西安邀请赛金牌(solved 8, Place 16)
 - 2017年ICPC沈阳站银牌第三(solved 6, Place 21)
 - 2017年ICPC西安站银牌第二(solved 6, Place 40)
+- 2017年ICPC上海EC-Final银牌(solved 7, Place 52)
 
 现大三。
 <!--more-->
@@ -26,8 +27,10 @@ github复制~~专家~~，stackoverflow~~资深~~搜索师。
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=32174251&auto=0&height=66"></iframe>
 
+
+
 <center>
 Make my parents proud<br>
 and<br>
-Impress the girl i like
+~~Impress the girl i like~~
 </center>
