@@ -9,6 +9,8 @@ date: 2018-10-19 12:55:22
 
 LETTers Online中，crazybox的设计和开发记录。
 
+-----Building-----
+
 <!--more-->
 
 经过调研，有以下几种方式完成sandbox部分的开发：
@@ -78,6 +80,18 @@ sudo apt-get install python3-dev  # for python3.x installs
 
 [Classification and Grouping of Linux System Calls](http://seclab.cs.sunysb.edu/sekar/papers/syscallclassif.htm)
 
+代码处理思路：
+- 编译行为只需要利用setrlimit对资源做出限制即可（主要是编译时间和编译输出）
+- 运行行为需要放入seccomp沙箱当中
+
+### seccomp权限控制
+- 允许任意的read调用
+- 只允许向stdout和stderr的write调用
+- 只允许列表中文件的的open调用
+- 允许任意的close调用
+
+打印可执行程序系统调用列表：
+`strace -f -c ./act_samples 2>&1 | sed -n '8,$p' | awk '{print $NF}'`
 
 交互题思路：
 
