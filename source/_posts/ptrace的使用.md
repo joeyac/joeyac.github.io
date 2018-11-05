@@ -75,7 +75,7 @@ something to stdout
 system call invalid: write(1): arg1=2
 ```
 我想要让这个程序更通用，比如通过`execve`替换进程为其他任意可执行程序，另外简单编写了一个a.cpp文件并编译为名为`a`的可执行文件：
-```
+```c
 #include <bits/stdc++.h>
 #include <unistd.h>
 using namespace std;
@@ -86,7 +86,7 @@ int main() {
 }
 ```
 然后对原来的主程序做出一些修改：
-```
+```c
 void print_exit(int status)
 {
     if (WIFEXITED(status))
@@ -158,6 +158,7 @@ abnormal termination, signal number = 31 core file generated
 发现确实能够禁止非法的子程序的系统调用，这一点在seccomp的文档中就提到，所有的子进程都会继承父亲的seccomp设置，并且加上PR_SET_NO_NEW_PRIVS就可以确保子程序不能通过execve获得新权限，但是有一个问题，禁止的系统调用名并没有输出（即`install_helper`并没有继承到子进程当中
 
 具体原因是，helper是通过注册信号处理函数来实现输出非法系统调用名的，在`sigaction`的[文档](http://man7.org/linux/man-pages/man2/sigaction.2.html)当中，有这样一个特殊说明：
+
 > During an execve(2), the dispositions of handled signals are reset to the default; the dispositions of ignored signals are left unchanged.
 
 也就是说在子进程中信号的handle被重置成默认值了……
@@ -175,7 +176,7 @@ ptrace可以和seccomp配合使用，在某些系统调用处终止调用执行�
 大致思路是，儿子进程非法系统调用都注册为`SCMP_ACT_TRACE(getppid())`，父进程通过循环不停的continue进程和处理相关的系统调用，然后通过ptrace获取子进程的用户空间的寄存器值，从中读取出来非法的系统调用和对应的参数。
 
 首先增加下面三个头文件：
-```
+```c
 #include <sys/ptrace.h>
 #include <sys/user.h> // 用户空间定义
 #include <sys/reg.h>  // 寄存器定义
@@ -184,7 +185,7 @@ ptrace可以和seccomp配合使用，在某些系统调用处终止调用执行�
 // 在较新的linux内核中要将上述两个头文件都包含进来
 ```
 另外先注意一下原来helper函数当中，`REG_SYSCALL`和`REG_ARG0`两个宏定义（我的平台是x86_64架构：
-```
+```c
 #elif defined(__x86_64__)
 #define REG_RESULT	REG_RAX
 #define REG_SYSCALL	REG_RAX
@@ -199,7 +200,7 @@ ptrace可以和seccomp配合使用，在某些系统调用处终止调用执行�
 找到对应的寄存器：`REG_RAX`和`REG_RDI`，后面会用到。
 
 main函数稍稍做出一些修改：
-```
+```c
 int main() {
     pid_t pid = fork();
     if (pid < 0) _exit(1);
@@ -221,14 +222,14 @@ int main() {
 然后增加了对子进程系统调用处理的函数`wait_for_syscall`，如果其返回值不为0，说明子进程已经结束。
 
 首先child函数也做出了一些修改，在开头增加了一行`ptrace(PTRACE_TRACEME, 0, NULL, NULL);`表明这个子进程由其父进程进行追踪; 然后原来的禁止规则做出如下修改：
-```
+```c
 seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(write), 1, SCMP_A0(SCMP_CMP_NE, STDOUT_FILENO));
 seccomp_rule_add(ctx, SCMP_ACT_TRACE(getppid()), SCMP_SYS(write), 1, SCMP_A0(SCMP_CMP_NE, STDOUT_FILENO));
 ```
 表明这个系统调用规则将会由一个tracer进程追踪。
 
 下面来看`wait_for_syscall`函数：
-```
+```c
 static int wait_for_syscall(pid_t child)
 {
     int status;
@@ -265,7 +266,7 @@ static int wait_for_syscall(pid_t child)
 注意在检查到规则之后，需要发送kill信号，且不能使用PTRACE_KILL: [reference1](https://lists.kernelnewbies.org/pipermail/kernelnewbies/2011-August/003132.html) [reference2](https://stackoverflow.com/questions/12015141/cancel-a-system-call-with-ptrace)
 
 执行修改后的程序输出如下：
-```
+```bash
 something to stdout
 [waitpid status: 0x0007057f]
 pid:21660, ret:21662, status=460159, Success
