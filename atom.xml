@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>crazyX&#39;s Blog</title>
+  
+  <subtitle>discover the funny world</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.jingwei.site/"/>
+  <updated>2019-10-31T20:29:49.077Z</updated>
+  <id>http://blog.jingwei.site/</id>
+  
+  <author>
+    <name>crazyX</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>setrlimit 101</title>
+    <link href="http://blog.jingwei.site/2018/11/05/setrlimit-101/"/>
+    <id>http://blog.jingwei.site/2018/11/05/setrlimit-101/</id>
+    <published>2018-11-05T09:27:23.000Z</published>
+    <updated>2019-10-31T20:29:49.077Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在利用seccomp和ptrace对程序在系统调用行为上做出限制之后，剩下的就需要在资源上（如运行时间、使用内存）做出限制，这个需求可以使用&lt;code&gt;setrlimit&lt;/code&gt;来实现。因此学习一下它的使用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="Linux" scheme="http://blog.jingwei.site/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ptrace 101</title>
+    <link href="http://blog.jingwei.site/2018/11/03/ptrace-de-shi-yong/"/>
+    <id>http://blog.jingwei.site/2018/11/03/ptrace-de-shi-yong/</id>
+    <published>2018-11-03T08:37:22.000Z</published>
+    <updated>2019-10-31T20:26:44.829Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有一些其他的需求暂时没找到办法用seccomp实现，于是继上次探索seccomp之后，又开始了研究ptrace的使用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="Linux" scheme="http://blog.jingwei.site/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>seccomp 101</title>
+    <link href="http://blog.jingwei.site/2018/10/31/seccomp-de-shi-yong/"/>
+    <id>http://blog.jingwei.site/2018/10/31/seccomp-de-shi-yong/</id>
+    <published>2018-10-31T14:12:19.000Z</published>
+    <updated>2019-10-31T20:29:49.066Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近有一些执行不安全程序的需求，考虑通过限制系统调用来对子程序进行行为限制（资源限制考虑用rlimit等方式，暂且不谈），学习了一下seccomp和seccomp-bpf的使用。&lt;/p&gt;
+&lt;p&gt;– 纸上得来终觉浅，绝知此事要躬行&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="Linux" scheme="http://blog.jingwei.site/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Extending Python with C or C++</title>
+    <link href="http://blog.jingwei.site/2018/10/20/extending-python-with-c-or-c/"/>
+    <id>http://blog.jingwei.site/2018/10/20/extending-python-with-c-or-c/</id>
+    <published>2018-10-20T12:03:29.000Z</published>
+    <updated>2019-10-31T20:29:48.892Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;探索在linux环境下，如何用c/c++语言扩展部分python逻辑。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="python" scheme="http://blog.jingwei.site/tags/python/"/>
+    
+      <category term="c" scheme="http://blog.jingwei.site/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LETTers Online dev - crazybox</title>
+    <link href="http://blog.jingwei.site/2018/10/19/letters-online-dev-crazybox/"/>
+    <id>http://blog.jingwei.site/2018/10/19/letters-online-dev-crazybox/</id>
+    <published>2018-10-19T04:55:22.000Z</published>
+    <updated>2019-10-31T20:29:48.950Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;LETTers Online中，crazybox的设计和开发记录。&lt;/p&gt;
+&lt;p&gt;—–Building—–&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="LETTers" scheme="http://blog.jingwei.site/tags/LETTers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>icpc-tools resolver 滚榜工具使用指北</title>
+    <link href="http://blog.jingwei.site/2018/05/22/icpc-tools-resolver-gun-bang-gong-ju-shi-yong-zhi-bei/"/>
+    <id>http://blog.jingwei.site/2018/05/22/icpc-tools-resolver-gun-bang-gong-ju-shi-yong-zhi-bei/</id>
+    <published>2018-05-22T13:11:16.000Z</published>
+    <updated>2019-10-31T20:26:44.823Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网上ICPC 官方滚榜工具的资料并不多 = = 半年多之前给学校办校赛折腾了一会，虽然最终效果很成功，实际上还是有一些玄学问题没解决……另外整个流程其实是比较复杂的……特此记录一下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="Guide" scheme="http://blog.jingwei.site/tags/Guide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDU 6270 - Marriage</title>
+    <link href="http://blog.jingwei.site/2018/05/14/hdu-6270-marriage/"/>
+    <id>http://blog.jingwei.site/2018/05/14/hdu-6270-marriage/</id>
+    <published>2018-05-14T09:56:23.000Z</published>
+    <updated>2019-10-31T20:29:48.938Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给出$n$个家庭，每个家庭有$a_i$个男生，$b_i$个女生，保证$\sum{a_i}=\sum{b_i} \leq 10^5$, 现在求每个人不会在家庭内部匹配异性的方案数对$998244353$取模。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="FFT" scheme="http://blog.jingwei.site/tags/FFT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cf #474 F.Pathwalks - 整体二分</title>
+    <link href="http://blog.jingwei.site/2018/04/08/cf-474-f-pathwalks-zheng-ti-er-fen/"/>
+    <id>http://blog.jingwei.site/2018/04/08/cf-474-f-pathwalks-zheng-ti-er-fen/</id>
+    <published>2018-04-08T15:15:45.000Z</published>
+    <updated>2019-10-31T20:29:48.982Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定$10^5$条边，需要找一条路径，使得路径上的边的权值严格递增，并且边的编号也是严格递增的，求最长路径包含的边的数量。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="整体二分" scheme="http://blog.jingwei.site/tags/%E6%95%B4%E4%BD%93%E4%BA%8C%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Project Euler 100 - Arranged probability</title>
+    <link href="http://blog.jingwei.site/2018/03/13/pe-100/"/>
+    <id>http://blog.jingwei.site/2018/03/13/pe-100/</id>
+    <published>2018-03-13T08:13:39.000Z</published>
+    <updated>2019-10-31T20:29:48.960Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;设蓝色碟片和红色碟片的数量分别为$n，m$，简单化简之后即求一个丢番图方程的满足$n+m&amp;gt;10^{12}$的解。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Math" scheme="http://blog.jingwei.site/categories/Math/"/>
+    
+    
+      <category term="project euler" scheme="http://blog.jingwei.site/tags/project-euler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>引以为戒</title>
+    <link href="http://blog.jingwei.site/2018/01/23/yin-yi-wei-jie/"/>
+    <id>http://blog.jingwei.site/2018/01/23/yin-yi-wei-jie/</id>
+    <published>2018-01-23T11:38:57.000Z</published>
+    <updated>2019-10-31T20:26:44.839Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一件小事（或许也说不上小），2018年1月7日晚，和朋友叙旧约饭，开了红星二锅头助兴，没控制住还开了第二瓶，朋友聊着聊着直接趴桌上不省人事……然而这时候我也迷糊了……趁着最后一点意识微信联系了另一个朋友……欠下了巨大的人情……给朋友带来太大麻烦了……在这里记录一下，以示警戒。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Diary" scheme="http://blog.jingwei.site/categories/Diary/"/>
+    
+    
+      <category term="生活" scheme="http://blog.jingwei.site/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多项式求逆总结 - 无向连通图计数</title>
+    <link href="http://blog.jingwei.site/2017/10/18/duo-xiang-shi-xiang-guan-wu-xiang-lian-tong-tu-ji-shu/"/>
+    <id>http://blog.jingwei.site/2017/10/18/duo-xiang-shi-xiang-guan-wu-xiang-lian-tong-tu-ji-shu/</id>
+    <published>2017-10-18T11:38:17.000Z</published>
+    <updated>2019-10-31T20:29:49.156Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;求$N$个点组成的有标号简单无向连通图个数，答案模 &lt;del&gt;10^9+7&lt;/del&gt; 1998585857&lt;/p&gt;
+&lt;p&gt;由这个问题引入，顺便总结一下多项式求逆的内容。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="图论" scheme="http://blog.jingwei.site/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="FFT" scheme="http://blog.jingwei.site/tags/FFT/"/>
+    
+      <category term="多项式" scheme="http://blog.jingwei.site/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>伯努利数及其应用</title>
+    <link href="http://blog.jingwei.site/2017/10/17/bo-nu-li-shu-ji-qi-ying-yong/"/>
+    <id>http://blog.jingwei.site/2017/10/17/bo-nu-li-shu-ji-qi-ying-yong/</id>
+    <published>2017-10-17T08:36:42.000Z</published>
+    <updated>2019-10-31T20:29:49.134Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;伯努利数定义：&lt;/p&gt;
+&lt;p&gt;$$\dfrac{t}{e^t - 1} = \sum_{n = 0}^{\infty} \dfrac{B_n}{n!} t^n$$&lt;/p&gt;
+&lt;p&gt;递推式：&lt;br&gt;$$\begin{align}&lt;br&gt;&amp;amp; \sum_{k = 0}^{n}C_{n + 1}^kB_k = 0 \\&lt;br&gt;\Longrightarrow &amp;amp; B_n = -\dfrac1{n+1}(C_{n+1}^0B_0 + C_{n+1}^1B_1+…+C_{n+1}^{n-1}B_{n-1})&lt;br&gt;\end{align}$$&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="多项式求逆" scheme="http://blog.jingwei.site/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86/"/>
+    
+      <category term="数学" scheme="http://blog.jingwei.site/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hdu 5730 Shell Necklace - [分治FFT|多项式求逆]</title>
+    <link href="http://blog.jingwei.site/2017/10/17/hdu-5730-shell-necklace-fen-zhi-fft-duo-xiang-shi-qiu-ni/"/>
+    <id>http://blog.jingwei.site/2017/10/17/hdu-5730-shell-necklace-fen-zhi-fft-duo-xiang-shi-qiu-ni/</id>
+    <published>2017-10-17T05:48:43.000Z</published>
+    <updated>2019-10-31T20:29:49.014Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给出长度分别为 $ 1 \sim n $ 的珠子，长度为i的珠子有$a[i]$种，每种珠子有无限个，问用这些珠子串成长度为n的链有多少种方案。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="CDQ分治" scheme="http://blog.jingwei.site/tags/CDQ%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="多项式求逆" scheme="http://blog.jingwei.site/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86/"/>
+    
+      <category term="FFT" scheme="http://blog.jingwei.site/tags/FFT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDU - 5324 - Boring Class - CDQ分治</title>
+    <link href="http://blog.jingwei.site/2017/10/03/hdu-5324-boring-class-cdq-fen-zhi/"/>
+    <id>http://blog.jingwei.site/2017/10/03/hdu-5324-boring-class-cdq-fen-zhi/</id>
+    <published>2017-10-03T13:41:28.000Z</published>
+    <updated>2019-10-31T20:29:48.928Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简单来说，给出n个二维点对，求$LIS$长度和编号字典序最小的$LIS$（$x$非增，$y$非减），并输出最优$LIS$。&lt;/p&gt;
+&lt;p&gt;显然有一个$DP[i] = \max{DP[j] + 1\ | \ i &amp;gt; j, L[i] \geq L[j], R[i] \leq R[j] }$&lt;/p&gt;
+&lt;p&gt;那么就是一个三维偏序问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="CDQ分治" scheme="http://blog.jingwei.site/tags/CDQ%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="线段树" scheme="http://blog.jingwei.site/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>偏序和CDQ分治</title>
+    <link href="http://blog.jingwei.site/2017/10/03/pian-xu-he-cdq-fen-zhi/"/>
+    <id>http://blog.jingwei.site/2017/10/03/pian-xu-he-cdq-fen-zhi/</id>
+    <published>2017-10-03T13:29:03.000Z</published>
+    <updated>2019-10-31T20:29:49.145Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;偏序关系&quot;&gt;&lt;a href=&quot;#偏序关系&quot; class=&quot;headerlink&quot; title=&quot;偏序关系&quot;&gt;&lt;/a&gt;偏序关系&lt;/h1&gt;&lt;h2 id=&quot;关系：&quot;&gt;&lt;a href=&quot;#关系：&quot; class=&quot;headerlink&quot; title=&quot;关系：&quot;&gt;&lt;/a&gt;关系：&lt;/h2&gt;&lt;p&gt;集合$X$的关系，是$X$与$X$的笛卡尔积$X × X$ 的子集R，即$X$的元素的有序对集合的一个子集&lt;/p&gt;
+&lt;p&gt;属于$X × X$的有序对$(a,b)$记为$aRb$&lt;/p&gt;
+&lt;p&gt;$R$的一些概念：&lt;br&gt;&lt;strong&gt;自反&lt;/strong&gt;：$\forall x \in X, xRx $&lt;br&gt;&lt;strong&gt;对称&lt;/strong&gt;：$\forall x, y \in X, xRy \rightarrow yRx $&lt;br&gt;&lt;strong&gt;传递&lt;/strong&gt;：$\forall x, y, z \in X, xRy, yRz \rightarrow xRz $&lt;/p&gt;
+&lt;h2 id=&quot;偏序：&quot;&gt;&lt;a href=&quot;#偏序：&quot; class=&quot;headerlink&quot; title=&quot;偏序：&quot;&gt;&lt;/a&gt;偏序：&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;偏序关系&lt;/strong&gt;：自反，反对称且传递 符号 $ \leq $&lt;br&gt;&lt;strong&gt;严格偏序&lt;/strong&gt;：自反，反对称且传递 符号 $ &amp;lt; $&lt;br&gt;&lt;strong&gt;可比&lt;/strong&gt;：$ \forall x, y \in X, xRy \vee yRx = true$&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="CDQ分治" scheme="http://blog.jingwei.site/tags/CDQ%E5%88%86%E6%B2%BB/"/>
+    
+      <category term="总结" scheme="http://blog.jingwei.site/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 16.04 /usr/bin/time 的使用</title>
+    <link href="http://blog.jingwei.site/2017/09/26/ubuntu-16-04-usr-bin-time-de-shi-yong/"/>
+    <id>http://blog.jingwei.site/2017/09/26/ubuntu-16-04-usr-bin-time-de-shi-yong/</id>
+    <published>2017-09-26T09:02:40.000Z</published>
+    <updated>2019-10-31T20:29:48.972Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在尝试使用docker以及docker-py通过python实现一个基于Ubuntu 16.04运行代码的沙箱，之前遇到的问题暂且按下不表，最近遇到了一个很令人烦恼的问题。&lt;/p&gt;
+&lt;p&gt;Docker本身是有丰富的资源调度控制的，比如说使用的cpu核心数、cpu运行时间、实际运行时间、内存使用、交换内存使用等等，甚至可以利用ulimits来对linux系统进行限制，可以说是很完备了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://blog.jingwei.site/tags/Ubuntu/"/>
+    
+      <category term="Tools" scheme="http://blog.jingwei.site/tags/Tools/"/>
+    
+      <category term="Resource" scheme="http://blog.jingwei.site/tags/Resource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>主定理及其应用</title>
+    <link href="http://blog.jingwei.site/2017/09/24/zhu-ding-li-ji-qi-ying-yong/"/>
+    <id>http://blog.jingwei.site/2017/09/24/zhu-ding-li-ji-qi-ying-yong/</id>
+    <published>2017-09-24T13:31:41.000Z</published>
+    <updated>2019-10-31T20:29:49.122Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主定理用来处理以下形式的复杂度求解问题：&lt;/p&gt;
+&lt;p&gt;$T(n) = \alpha\ T(n / \beta ) + f(n)$&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="算法" scheme="http://blog.jingwei.site/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="计算机科学" scheme="http://blog.jingwei.site/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CodeForces Gym 101190 B - Binary Code</title>
+    <link href="http://blog.jingwei.site/2017/09/22/codeforces-gym-101190-b-binary-code/"/>
+    <id>http://blog.jingwei.site/2017/09/22/codeforces-gym-101190-b-binary-code/</id>
+    <published>2017-09-22T04:29:54.000Z</published>
+    <updated>2019-10-31T20:29:48.880Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定$n (n \leq 5e5, \sum length \leq 5e5)$个01字符串,每个字符串&lt;b&gt;最多&lt;/b&gt;包含一个问号，问是否存在一种将所有问号都用$0 /\ 1$替代的方案，并且使得$n$个字符串任意两个都互不是对方的前缀。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="2-SAT" scheme="http://blog.jingwei.site/tags/2-SAT/"/>
+    
+      <category term="字典树" scheme="http://blog.jingwei.site/tags/%E5%AD%97%E5%85%B8%E6%A0%91/"/>
+    
+      <category term="Trie" scheme="http://blog.jingwei.site/tags/Trie/"/>
+    
+      <category term="SCC缩点" scheme="http://blog.jingwei.site/tags/SCC%E7%BC%A9%E7%82%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>install eclipse Neon on jdk9</title>
+    <link href="http://blog.jingwei.site/2017/09/18/install-eclipse-neon-on-jdk9/"/>
+    <id>http://blog.jingwei.site/2017/09/18/install-eclipse-neon-on-jdk9/</id>
+    <published>2017-09-18T07:37:38.000Z</published>
+    <updated>2019-10-31T20:29:49.024Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天要写Java的时候突然发现还没有安装Eclipse，先是直接下载了网络安装包……结果因为墙的问题卡住……然后去下载完整安装包，直接运行却报错了：&lt;/p&gt;
+&lt;pre class=&quot; language-java&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Geek" scheme="http://blog.jingwei.site/categories/Geek/"/>
+    
+    
+      <category term="Eclipse" scheme="http://blog.jingwei.site/tags/Eclipse/"/>
+    
+      <category term="Java" scheme="http://blog.jingwei.site/tags/Java/"/>
+    
+      <category term="Install" scheme="http://blog.jingwei.site/tags/Install/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CCPC 2016-2017 Finals - HDU 6005Pandaland</title>
+    <link href="http://blog.jingwei.site/2017/09/16/ccpc-2016-2017-finals-hdu-6005pandaland/"/>
+    <id>http://blog.jingwei.site/2017/09/16/ccpc-2016-2017-finals-hdu-6005pandaland/</id>
+    <published>2017-09-16T06:00:53.000Z</published>
+    <updated>2019-10-31T20:29:48.865Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定了 $m(m \leq 4000)$ 条边，每条边有不同的权值$w_{i}$，问其中权值最小的环的权值是多少，如果不存在环，则输出0&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ACM" scheme="http://blog.jingwei.site/categories/ACM/"/>
+    
+    
+      <category term="图论" scheme="http://blog.jingwei.site/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="最小生成树" scheme="http://blog.jingwei.site/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    
+      <category term="LCA" scheme="http://blog.jingwei.site/tags/LCA/"/>
+    
+  </entry>
+  
+</feed>

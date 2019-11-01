@@ -1,0 +1,1449 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="图算法, ICPC,crazyX,CS,c++,python">
+    <meta name="description" content="基本概念图由顶点（vertex，node）和边（edge）组成顶点:图中的数据元素称为顶点.有向图:有方向的图叫有向图.无向图:没有方向的图叫无向图.完全图:有n(n-1)/2条边的无向图称为完全图.有向完全图:具有n(n-1)条弧的有向图">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>图算法 | crazyX&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">crazyX's Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">crazyX's Blog</div>
+        <div class="logo-desc">
+            
+            你是如何搞砸一段关系的？正常发挥。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/joeyac/joeyac.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/joeyac/joeyac.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        图算法
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                <span class="chip bg-color">图论</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ACM/" class="post-category">
+                                ACM
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2016-02-17
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>图由顶点（vertex，node）和边（edge）组成<br>顶点:图中的数据元素称为顶点.<br>有向图:有方向的图叫有向图.<br>无向图:没有方向的图叫无向图.<br>完全图:有n(n-1)/2条边的无向图称为完全图.<br>有向完全图:具有n(n-1)条弧的有向图称为有向完全图.<br>稀疏图:有很少条边或弧的图称为稀疏图,反之称为稠密图.<br>权:与图的边或弧相关的数叫做权(weight).<br>DAG：没有圈的有向图.</p>
+<h2 id="图的表示"><a href="#图的表示" class="headerlink" title="图的表示"></a>图的表示</h2><p>1.邻接矩阵<br>2.邻接表<br>邻接表的实现：</p>
+<pre class="minimize:true lang:c++ decode:true">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int MAX_V=10000;
+vector&lt;int&gt; G[MAX_V];
+//struct edge{      //边上有属性的情况
+//    int to,cost;
+//};
+//vector&lt;edge&gt; G[MAX_V];
+int main()
+{
+    int V,E,a,b;
+    scanf("%d%d",&amp;V,&amp;E);
+    for (int i = 0; i &lt; E; i += 1)
+    {
+        scanf("%d%d",&amp;a,&amp;b);
+        G[a].push_back(b);
+//        如果是无向图，加上下面这条
+//        G[b].push_back(a);
+    }
+//    图的操作
+//    。
+//    。
+//    。
+    return 0;
+}</pre>
+
+<h3 id="二分图搜索：（DFS）"><a href="#二分图搜索：（DFS）" class="headerlink" title="二分图搜索：（DFS）"></a>二分图搜索：（DFS）</h3><pre class="minimize:true lang:c++ decode:true">#include&lt;iostream&gt;
+#include&lt;stdio.h&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int MAX_V=10000;
+vector&lt;int&gt; G[MAX_V];
+int color[MAX_V];
+bool dfs(int v,int c){
+    color[v]=c;
+    for (int i = 0; i &lt; G[v].size(); i += 1)
+    {
+        if(color[G[v][i]]==c)return false;
+        if(color[G[v][i]]==0&amp;&amp;!dfs(G[v][i],-c))return false;
+    }
+    return true;
+}
+int main()
+{
+    int V,E,a,b;
+    scanf("%d%d",&amp;V,&amp;E);
+    for(int i=0;i&lt;V;i++)color[i]=0;  //初始化
+    for (int i = 0; i &lt; E; i += 1)
+    {
+        scanf("%d%d",&amp;a,&amp;b);
+        G[a].push_back(b);
+        G[b].push_back(a);
+    }
+    if(!dfs(0,1)){
+        printf("Not A Bipartite Graph");
+    }
+    else{
+        printf("YES");
+    }
+    return 0;
+}</pre>
+
+<h2 id="单源最短路问题"><a href="#单源最短路问题" class="headerlink" title="单源最短路问题"></a>单源最短路问题</h2><p>松弛操作：</p>
+<pre class="lang:c++ decode:true">void relax(int from,int to,int cost){   //一般不需要单独编写
+    if(d[from]!=INF&amp;&amp;d[to]&gt;d[from]+cost){
+        d[to]=d[from]+cost;
+    }
+}</pre>
+
+<h3 id="1-Bellman-Ford算法"><a href="#1-Bellman-Ford算法" class="headerlink" title="1.Bellman-Ford算法"></a>1.Bellman-Ford算法</h3><p>适用条件&amp;范围：<br>a) 单源最短路径(从源点s到其它所有顶点v);<br>b) 有向图&amp;无向图(无向图可以看作(u,v),(v,u)同属于边集E的有向图);<br>c) 边权可正可负(如有负权回路输出错误提示);<br>d) 差分约束系统;</p>
+<pre class="minimize:true lang:c++ decode:true ">void short_path(int s){
+    for(int i=0;i&lt;V;i++)D[i]=INF;
+    D[s]=0;
+    while(true){
+        bool update=false;
+        for (int i = 0; i &lt; E; i += 1)
+        {
+            edge e=es[i];
+            if(D[e.from]!=INF&amp;&amp;D[e.to]&gt;D[e.from]+e.cost){
+                D[e.to]=D[e.from]+e.cost;
+                update=true;
+            }
+        }
+        if(!update)break;
+    }
+}</pre>
+<p>如果在图中不存在从s可达的负圈，那么最短路不会经过同一个顶点两次，（也就是说，最多通过|V|-1条边），while（1）的循环最多执行|V|-1次，因此，复杂度为O（|V|*|E|）。反之，如果存在从s可达的负圈，那么在第|V|次循环时也会更新d的值，因此可以检测负圈。如果一开始对所有的顶点i，都把d[i]初始化为0,那么可以查找出所有的负圈.</p>
+<pre class="lang:c++ decode:true">bool find_negative_loop(){
+    memset(D,0,sizeof(D));
+    for (int i = 0; i &lt; V; i += 1)
+    {
+        for (int j = 0; j &lt; E; j += 1)
+        {
+            edge e=es[j];
+            if(D[e.to]&gt;D[e.from]+e.cost){
+                D[e.to]=D[e.from]+e.cost;
+                //如果第V次依旧更新了,则存在负圈
+                if(i==V-1)return true;
+            }
+        }
+    }
+    return false;
+}</pre>
+<p>&nbsp;</p>
+<h3 id="2-Dijkstra算法"><a href="#2-Dijkstra算法" class="headerlink" title="2.Dijkstra算法"></a>2.Dijkstra算法</h3><p>适用条件&amp;范围：<br>a) 单源最短路径(从源点s到其它所有顶点v);<br>b) 有向图&amp;无向图(无向图可以看作(u,v),(v,u)同属于边集E的有向图)<br>c) 所有边权非负(任取(i,j)∈E都有Wij≥0);</p>
+<pre class="minimize:true lang:c++ decode:true">struct edge
+{
+    int to,cost;
+};
+typedef pair&lt;int,int&gt; P;   //first是最短距离,second是顶点的编号.
+int V;
+const int MAX_V=100000,INF=INT32_MAX;
+vector&lt;edge&gt; G[MAX_V];
+int d[MAX_V];
+void dijkstra(int s){
+        //通过指定greater参数,堆按照first从小到达排列
+    priority_queue&lt; P,vector&lt;P&gt;,greater&lt;P&gt; &gt; que;
+    fill(d,d+V,INF);
+    d[s]=0;
+    que.push(P(0,s));
+    while (!que.empty())
+    {
+        P p=que.top();que.pop();
+        int v=p.second;
+        if(p.first&gt;d[v])continue;
+        for (unsigned int i = 0; i &lt; G[v].size(); i += 1)
+        {
+            edge e=G[v][i];
+            if (d[e.to]&gt;d[v]+e.cost)
+            {
+                d[e.to]=d[v]+e.cost;
+                que.push(P(d[e.to],e.to));
+            }
+        }
+    }
+}</pre>
+
+<h2 id="任意两点间的最短路问题-Floyd-Warshall算法"><a href="#任意两点间的最短路问题-Floyd-Warshall算法" class="headerlink" title="任意两点间的最短路问题(Floyd-Warshall算法)"></a>任意两点间的最短路问题(Floyd-Warshall算法)</h2><p>适用范围：<br>a) APSP(All Pairs Shortest Paths)<br>b) 稠密图效果最佳<br>c) 边权可正可负</p>
+<p>利用DP来解决.对于任意两点,只使用顶点0~k和i,j的情况下,记i到j的最短路长度为d[k][i][j].k=-1时,认为只使用i和j,所以d[-1][i][j]=cost[i][j].</p>
+<p>接下来把只使用顶点0<del>k的问题归结到只使用0</del>k-1:</p>
+<p>只使用0~k-1时,分i到j的最短路正好经过顶点k一次和完全不经过顶点k的情况来讨论.不经过时,d[k][i][j]=d[k-1][i][j];经过时,d[k][i][j]=d[k-1][i][k]+d[k-1][k][i];<br>所以d[k][i][j]=min(d[k-1][i][j],d[k-1][i][k]+d[k-1][k][j]),显然可以用一个二维数组,不断进行d[i][j]=min(d[i][j],d[i][k]+d[k][j])更新来实现.</p>
+<pre class="lang:c++ decode:true">int d[MAX_V][MAX_V];  //d[u][v]表示边e=(u,v)的权值,不存在时设为INF,不过d[i][i]=0;
+int V;  //顶点数;
+void warshall_floyd(){
+    for (int k = 0; k &lt; V; k += 1)
+    {
+        for (int i = 0; i &lt; V; i += 1)
+        {
+            for (int j = 0; j &lt; V; j += 1)
+            {
+                d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
+            }
+        }
+    }
+    return;
+}</pre>
+
+<h2 id="路径还原"><a href="#路径还原" class="headerlink" title="路径还原"></a>路径还原</h2><p>1.</p>
+<p>输出时可能会遇到一点难处，我们记的是每个点“前面的”点是什么，输出却要从最前面往最后面输，这不好办。其实很好办，见如下递归方法</p>
+<div class="UBBPanel codePanel">
+<div class="UBBContent">
+<pre class="lang:c++ decode:true ">void PrintPath(int k){
+    if( Path[k] ) PrintPath(Path[k]);
+    fout&lt;&lt;k&lt;&lt;' ';
+}</pre>
+</div>
+</div>
+2.利用pre数组并且翻转进行最短路的还原.下面将dijkstra算法修改:
+<pre class="minimize:true lang:c++ mark:17,23,36,43-49 range:17-49 decode:true">#include&lt;iostream&gt;
+#include&lt;memory.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;queue&gt;
+#include &lt;vector&gt;
+#include&lt;algorithm&gt;
+
+<p>using namespace std;<br>struct edge<br>{<br>    int to,cost;<br>};<br>typedef pair&lt;int,int&gt; P;   //first是最短距离,second是顶点的编号.<br>int V;<br>const int MAX_V=100000,INF=INT32_MAX;<br>vector&lt;edge&gt; G[MAX_V];<br>int pre[MAX_V];          //<br>int d[MAX_V];</p>
+<p>void dijkstra(int s){<br>    priority_queue&lt; P,vector&lt;P&gt;,greater&lt;P&gt; &gt; que;<br>    fill(d,d+V,INF);<br>    fill(pre,pre+V,-1);   //<br>    d[s]=0;<br>    que.push(P(0,s));<br>    while (!que.empty())<br>    {<br>        P p=que.top();que.pop();<br>        int v=p.second;<br>        if(p.first&gt;d[v])continue;<br>        for (unsigned int i = 0; i &lt; G[v].size(); i += 1)<br>        {<br>            edge e=G[v][i];<br>            if (d[e.to]&gt;d[v]+e.cost)<br>            {<br>                pre[e.to]=v;    //<br>                d[e.to]=d[v]+e.cost;<br>                que.push(P(d[e.to],e.to));<br>            }<br>        }<br>    }<br>}<br>vector&lt;int&gt; get_path(int t){     //<br>    vector&lt;int&gt; path;<br>    for (;t!=-1;t=pre[t])path.push_back(t);<br>    //翻转<br>    reverse(path.begin(),path.end());    //#include&lt;algorithm&gt;<br>    return path;<br>}<br>int main()<br>{</p>
+<pre><code>return 0;</code></pre><p>}</p></pre><p></p>
+<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><h3 id="Prim算法-Dijksta的推广"><a href="#Prim算法-Dijksta的推广" class="headerlink" title="Prim算法(Dijksta的推广)"></a>Prim算法(Dijksta的推广)</h3><p>适用范围：<br>a) MST(Minimum Spanning Tree,最小生成树)<br>b) 无向图(有向图的是最小树形图)<br>c) 多用于稠密图</p>
+<pre class="minimize:true lang:c++ decode:true">#include&lt;iostream&gt;
+#include&lt;memory.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+int V,E;
+const int MAX_V=10000,INF=INT32_MAX;    
+int cost[MAX_V][MAX_V];   //表示边(u,v)的权值,如果不存在,初始化为INF
+int mincost[MAX_V];
+bool used[MAX_V];
+int prim(){
+
+    fill(mincost,mincost+V,INF);
+    fill(used,used+V,false);
+    mincost[0]=0;
+    int ans=0;
+
+    while(1){
+        int v=-1;
+        for (int i = 0; i &lt; V; i += 1)
+        {
+            if(!used[i]&amp;&amp;(v==-1||mincost[v]&gt;mincost[i]))v=i;
+        }
+        if(v==-1)break;
+        used[v]=true;
+        ans+=mincost[v];
+
+        for (int i = 0; i &lt; V; i += 1)
+        {
+            mincost[i]=min(mincost[i],cost[v][i]);
+        }
+    }
+    return ans;
+}
+int main()
+{
+    scanf("%d %d",&amp;V,&amp;E);
+    int a,b,c;
+    for (int i = 0; i &lt; V; i += 1)
+    {
+        for (int j = 0; j &lt; V; j += 1)
+        {
+            cost[i][j]=INF;
+        }
+    }
+    for (int i = 0; i &lt; E; i += 1)
+    {
+        scanf("%d %d %d",&amp;a,&amp;b,&amp;c);
+        cost[a][b]=c;
+        cost[b][a]=c;
+    }
+    cout&lt;&lt;prim()&lt;&lt;endl;
+    return 0;
+}</pre>
+<p>这是朴素的prim算法,复杂度为O(V<em>V),可用堆来维护mincost数组优化到O(E</em>logV)但是过于繁杂,不推荐使用.</p>
+<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><p>适用范围：<br>a) MST(Minimum Spanning Tree,最小生成树)<br>b) 无向图(有向图的是最小树形图)<br>c) 多用于稀疏图<br>d) 边已经按权值排好序给出</p>
+<pre class="minimize:true lang:c++ decode:true ">#include&lt;iostream&gt;
+#include&lt;memory.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+int V,E;
+const int MAX_V=1000,MAX_E=1000,INF=INT32_MAX;
+int par[MAX_V],ranks[MAX_V]; //并查集
+int find(int x){
+    if(par[x]==x)return x;
+    else return par[x]=find(par[x]);
+}
+void unite(int x,int y){
+    x=find(x);
+    y=find(y);
+    if(x==y)return;
+    if(ranks[x]&lt;ranks[y]){
+        par[x]=y;
+    }else{
+        par[y]=x;
+        if(ranks[x]==ranks[y])ranks[x]++;
+    }
+}
+bool same(int x,int y){
+    return find(x)==find(y);
+}
+void init(int n){
+    for (int i = 0; i &lt; n; i += 1)
+    {
+        par[i]=i;
+        ranks[i]=1;
+    }
+}
+struct edge   //
+{
+    int u,v,cost;
+};
+edge es[MAX_E];
+bool cmp(edge a,edge b){
+    return a.cost&lt;b.cost;
+}
+
+int kruskal(){
+    sort(es,es+E,cmp);
+    init(V);   //并查集初始化
+    int res=0;
+    for (int i = 0; i &lt; E; i += 1)
+    {
+        edge e=es[i];
+        if(!same(e.u,e.v)){
+            unite(e.u,e.v);
+            res+=e.cost;
+        }
+    }
+    return res;
+}
+int main()
+{
+    scanf("%d %d",&amp;V,&amp;E);
+    int a,b,c;
+    for (int i = 0; i &lt; E; i += 1)
+    {
+        scanf("%d %d %d",&amp;a,&amp;b,&amp;c);
+        es[i].u=a;
+        es[i].v=b;
+        es[i].cost=c;
+    }
+    cout&lt;&lt;kruskal()&lt;&lt;endl;
+    return 0;
+}</pre>
+<p>Kruskal算法在排序上最费时,算法的复杂度为O(E*logV),理解起来很容易,注意写好并查集.</p>
+<p>&nbsp;</p>
+<p>参考博客:  <a href="http://www.cnblogs.com/10jschen/archive/2012/08/15/2639650.html" target="_blank" rel="noopener">[ACM算法]图的基本知识</a></p>
+<p>暂时这么多,剩下的以后再补~</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充:"></a>补充:</h1><h2 id="SPFA算法"><a href="#SPFA算法" class="headerlink" title="SPFA算法"></a>SPFA算法</h2><p>求单源最短路的SPFA算法的全称是：Shortest Path Faster Algorithm，是西南交通大学段凡丁于1994年发表的。从名字我们就可以看出，这种算法在效率上一定有过人之处。很多时候，给定的图存在负权边，这时类似Dijkstra算法等便没有了用武之地，而Bellman-Ford算法的复杂度又过高，SPFA算法便派上用场了。简洁起见，我们约定加权有向图G不存在负权回路，即最短路径一定存在。如果某个点进入队列的次数超过N次则存在负环（SPFA无法处理带负环的图）。当然，我们可以在执行该算法前做一次拓扑排序，以判断是否存在负权回路，但这不是我们讨论的重点。我们用数组d记录每个结点的最短路径估计值，而且用邻接表来存储图G。我们采取的方法是动态逼近法：设立一个先进先出的队列用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止。</p>
+<div class="para">定理：只要最短路径存在，上述SPFA算法必定能求出最小值。证明：每次 将点放入队尾，都是经过松弛操作达到的。换言之，每次的优化将会有某个点v的最短路径估计值d[v]变小。所以算法的执行会使d越来越小。由于我们假定图 中不存在负权回路，所以每个结点都有最短路径值。因此，算法不会无限执行下去，随着d值的逐渐变小，直到到达最短路径值时，算法结束，这时的最短路径估计 值就是对应结点的最短路径值。</div>
+<div class="para"></div>
+<div class="para">期望时间复杂度：O(me)， 其中m为所有顶点进队的平均次数，可以证明m一般小于等于2：“算法编程后实际运算情况表明m一般没有超过2n.事实上顶点入队次数m是一个不容易事先分 析出来的数,但它确是一个随图的不同而略有不同的常数.所谓常数,就是与e无关,与n也无关,仅与边的权值分布有关.一旦图确定,权值确定,原点确定,m 就是一个确定的常数.所以SPFA算法复杂度为O(e).证毕."（SPFA的论文）不过，这个证明是非常不严谨甚至错误的，事实上在bellman算法的论文中已有这方面的内容，所以国际上一般不承认SPFA算法。</div>
+<div class="para"></div>
+<div class="para">对SPFA的一个很直观的理解就是由无权图的BFS转 化而来。在无权图中，BFS首先到达的顶点所经历的路径一定是最短路(也就是经过的最少顶点数)，所以此时利用数组记录节点访问可以使每个顶点只进队一 次，但在带权图中，最先到达的顶点所计算出来的路径不一定是最短路。一个解决方法是放弃数组，此时所需时间自然就是指数级的，所以我们不能放弃数组，而是 在处理一个已经在队列中且当前所得的路径比原来更好的顶点时，直接更新最优解。</div>
+<div class="para"></div>
+<div class="para">SPFA算法有两个优化策略SLF和LLL——SLF：Small Label First 策略，设要加入的节点是j，队首元素为i，若dist(j)&lt;dist(i)，则将j插入队首，否则插入队尾； LLL：Large Label Last 策略，设队首元素为i，队列中所有dist值的平均值为x，若dist(i)&gt;x则将i插入到队尾，查找下一元素，直到找到某一i使得 dist(i)&lt;=x，则将i出队进行松弛操作。 SLF 可使速度提高 15 ~ 20%；SLF + LLL 可提高约 50%。 在实际的应用中SPFA的算法时间效率不是很稳定，为了避免最坏情况的出现，通常使用效率更加稳定的Dijkstra算法。</div>
+<div class="para"></div>
+<div class="para">**SPFA的两种写法，bfs和dfs，bfs判别负环不稳定，相当于限深度搜索，但是设置得好的话还是没问题的，dfs的话判断负环很快**</div>
+<div class="para"></div>
+<pre class="lang:c++ decode:true">int spfa_bfs(int s)
+{
+    queue &lt;int&gt; q;
+    memset(d,0x3f,sizeof(d));
+    d[s]=0;
+    memset(c,0,sizeof(c));
+    memset(vis,0,sizeof(vis));
+
+<pre><code>q.push(s);  vis[s]=1; c[s]=1;
+//顶点入队vis要做标记，另外要统计顶点的入队次数
+int OK=1;
+while(!q.empty())
+{
+    int x;
+    x=q.front(); q.pop();  vis[x]=0;
+    //队头元素出队，并且消除标记
+    for(int k=f[x]; k!=0; k=nnext[k]) //遍历顶点x的邻接表
+    {
+        int y=v[k];
+        if( d[x]+w[k] &amp;lt; d[y])
+        {
+            d[y]=d[x]+w[k];  //松弛
+            if(!vis[y])  //顶点y不在队内
+            {
+                vis[y]=1;    //标记
+                c[y]++;      //统计次数
+                q.push(y);   //入队
+                if(c[y]&amp;gt;NN)  //超过入队次数上限，说明有负环
+                    return OK=0;
+            }
+        }
+    }
+}
+
+return OK;</code></pre><p>}</p></pre><p></p>
+<pre class="lang:c++ decode:true ">int spfa_dfs(int u)
+{
+    vis[u]=1;
+    for(int k=f[u]; k!=0; k=e[k].next)
+    {
+        int v=e[k].v,w=e[k].w;
+        if( d[u]+w &lt; d[v] )
+        {
+            d[v]=d[u]+w;
+            if(!vis[v])
+            {
+                if(spfa_dfs(v))
+                    return 1;
+            }
+            else
+                return 1;
+        }
+    }
+    vis[u]=0;
+    return 0;
+}</pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://blog.jingwei.site" rel="external nofollow noreferrer">crazyX</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://blog.jingwei.site/2016/02/17/map-algorithm/">http://blog.jingwei.site/2016/02/17/map-algorithm/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://blog.jingwei.site" target="_blank">crazyX</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                    <span class="chip bg-color">图论</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '02e2daac6d2ed479ce50',
+        clientSecret: '3eafae2ece74c88d63852072e3324ce26120ed01',
+        repo: 'joeyac.github.io',
+        owner: 'joeyac',
+        admin: ["joeyac"],
+        id: '2016-02-17T21-33-31',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2016/02/18/acm-e5-8a-a8-e6-80-81-e8-a7-84-e5-88-92-e6-80-bb-e7-bb-93/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ACM动态规划总结">
+                        
+                        <span class="card-title">ACM动态规划总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            转载请注明出处，谢谢。   http://blog.csdn.net/cc_again?viewmode=list          ———-  Accagain  2014年5月15日
+动态规划一直是ACM竞赛中的重点，同时又是难点，因为
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2016-02-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%80%BB%E7%BB%93/">
+                        <span class="chip bg-color">总结</span>
+                    </a>
+                    
+                    <a href="/tags/DP/">
+                        <span class="chip bg-color">DP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2016/02/12/hdoj1010/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="hdoj 1010 Tempter of the Bone解题报告">
+                        
+                        <span class="card-title">hdoj 1010 Tempter of the Bone解题报告</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            链接：hdoj1010
+
+Tempter of the Bone**Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 65536/32768 K (Java/Others)
+To
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-02-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DFS/">
+                        <span class="chip bg-color">DFS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://blog.jingwei.site" target="_blank">crazyX</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">78.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2017";
+                    var startMonth = "08";
+                    var startDate = "31";
+                    var startHour = "13";
+                    var startMinute = "29";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xu_jingwei@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=623353308" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 623353308" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="http://weibo.com/u/5373037904" class="tooltipped" target="_blank" data-tooltip="关注我的微博: http://weibo.com/u/5373037904" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="http://www.zhihu.com/people/xu-jing-wei-29" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: http://www.zhihu.com/people/xu-jing-wei-29" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
