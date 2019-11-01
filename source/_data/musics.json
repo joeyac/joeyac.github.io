@@ -1,12 +1,50 @@
-[{
-	"name": "Something Just Like This",
-	"artist": "The Chainsmokers && Coldplay",
-	"url": "https://v1.hitokoto.cn/nm/redirect/music/461347998",
-	"cover": "http://p4.music.126.net/ggnyubDdMxrhpqYvpZbhEQ==/3302932937412681.jpg"
-},
-{
-	"name": "Shape of You",
-	"artist": "J.Fla",
-	"url": "https://v1.hitokoto.cn/nm/redirect/music/468882985",
-	"cover": "http://p4.music.126.net/hZ2ttGYOQbL9ei9yABpejQ==/109951163032775841.jpg"
-}]
+[
+	{
+		"name": "Something Just Like This",
+		"artist": "The Chainsmokers && Coldplay",
+		"url": "https://v1.hitokoto.cn/nm/redirect/music/461347998",
+		"cover": "http://p4.music.126.net/ggnyubDdMxrhpqYvpZbhEQ==/3302932937412681.jpg"
+	},
+	{
+		"name": "绘梨衣",
+		"artist": "Owane羽沙",
+		"url": "https://v1.hitokoto.cn/nm/redirect/music/1305926274",
+		"cover": "https://p3.music.126.net/4dJto3iswKbZ9_QvEaO6FQ==/109951163521654436.jpg"
+	},
+	{
+		"name": "そばにいるね",
+		"artist": "青山テルマ",
+		"url": "https://v1.hitokoto.cn/nm/redirect/music/555142",
+		"cover": "https://p3.music.126.net/GFbvZasO56D_Co6Rr31srA==/109951163089243761.jpg"
+	},
+	{
+		"name": "城南花已开",
+		"artist": "三亩地",
+		"url": "https://v1.hitokoto.cn/nm/redirect/music/468176711",
+		"cover": "https://p3.music.126.net/i-7ktILRPImJ0NwiH8DABg==/109951162885959979.jpg"
+	},
+	{
+		"name": "If I Killed Someone For You",
+		"artist": "Alec Benjamin",
+		"url": "https://v1.hitokoto.cn/nm/redirect/music/1325349675",
+		"cover": "https://p3.music.126.net/sgov4rBs12EN8IkmQL1fYA==/109951163787355382.jpg"
+	},
+	{
+		"name": "Let Me Down Slowly",
+		"artist": "Alec Benjamin",
+		"url": "https://v1.hitokoto.cn/nm/redirect/music/1325349670",
+		"cover": "https://p3.music.126.net/sgov4rBs12EN8IkmQL1fYA==/109951163787355382.jpg"
+	},
+	{
+		"name": "僕が死のうと思ったのは",
+		"artist": "中島美嘉",
+		"url": "https://v1.hitokoto.cn/nm/redirect/music/26830207",
+		"cover": "https://p3.music.126.net/HE-K4mxyNGF84xlyuxx9Wg==/109951163825342747.jpg"
+	},
+	{
+	"name": "赤伶",
+	"artist": "HITA",
+	"url": "https://v1.hitokoto.cn/nm/redirect/music/1313118277",
+	"cover": "https://p3.music.126.net/8Bewu02q4H61HEqmrKtrWA==/109951163571689685.jpg"
+	}
+]
