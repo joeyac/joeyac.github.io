@@ -476,7 +476,7 @@ FindPythonLibs在这里可以看到cmake如何添加python.h支持，">
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 				
@@ -533,13 +533,13 @@ int main() {
     printf("Hello, World!\n");
     return 0;
 }</code></pre><p>为了在python中使用这个c函数，需要利用python.h头文件对原有的函数进行包装，最终我们想达成如下效果(上述函数最后一个参数为结果结构体的引用):</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> cbox
-<span class="token operator">>></span><span class="token operator">></span> code<span class="token punctuation">,</span> result <span class="token operator">=</span> cbox<span class="token punctuation">.</span>func<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"string here"</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> code
+<pre class=" language-python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">import</span> cbox
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> code<span class="token punctuation">,</span> result <span class="token operator">=</span> cbox<span class="token punctuation">.</span>func<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"string here"</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> code
 <span class="token number">3</span>
-<span class="token operator">>></span><span class="token operator">></span> result<span class="token punctuation">.</span>val1
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> result<span class="token punctuation">.</span>val1
 <span class="token number">1</span>
-<span class="token operator">>></span><span class="token operator">></span> result<span class="token punctuation">.</span>str
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> result<span class="token punctuation">.</span>str
 string here</code></pre>
 <p>在python.h文件当中，最重要的一个结构体是PyObject，这个结构体可以和python当中直接使用的任何对象进行转化。</p>
 <p>一般情况下，包装函数结构如下:</p>
@@ -636,14 +636,14 @@ setup<span class="token punctuation">(</span>name<span class="token operator">=<
       ext_modules<span class="token operator">=</span><span class="token punctuation">[</span>cbox_module<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>注意使用虚拟的python环境以避免破坏机器的全局python环境，pip install .进行安装</p>
 <p>进入python终端：</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">from</span> cbox <span class="token keyword">import</span> func
-<span class="token operator">>></span><span class="token operator">></span> func<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"ddd"</span><span class="token punctuation">)</span>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">from</span> cbox <span class="token keyword">import</span> func
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> func<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"ddd"</span><span class="token punctuation">)</span>
 <span class="token number">3</span>
-<span class="token operator">>></span><span class="token operator">></span> func<span class="token punctuation">(</span><span class="token string">"q"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"ddd"</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> func<span class="token punctuation">(</span><span class="token string">"q"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">"ddd"</span><span class="token punctuation">)</span>
 Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  File <span class="token string">"&lt;stdin>"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">></span>
+  File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
 TypeError<span class="token punctuation">:</span> an integer <span class="token keyword">is</span> required <span class="token punctuation">(</span>got type str<span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> </code></pre>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> </code></pre>
 <p>再回到一开始的包装函数，修改返回值，利用Py_BuildValue函数即可：</p>
 <pre><code>static PyObject *
 wrapper_func(PyObject *self, PyObject *args) {
@@ -1075,7 +1075,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.5k</span>&nbsp;字
+                class="white-color">78.8k</span>&nbsp;字
             
             
             

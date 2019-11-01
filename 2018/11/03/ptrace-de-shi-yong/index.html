@@ -489,7 +489,7 @@
 <p>使用ptrace可以暂停被监控程序，获取设置寄存器值和内存，监控系统调用，甚至是截断系统调用。一般用于程序debug，以及linux下的strace就是用ptrace实现的。</p>
 <p>但是ptrace并没有被标准化，如果使用ptrace，需要关注自己的开发平台和系统架构，我的开发环境是Ubuntu 16.04 x86-64.<br>（我猜是因为不同系统架构或者平台寄存器都不一样？</p>
 <p>函数原型如下：</p>
-<pre class=" language-c"><code class="language-c">   <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/ptrace.h></span></span>
+<pre class=" language-c"><code class="language-c">   <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/ptrace.h&gt;</span></span>
 
    <span class="token keyword">long</span> <span class="token function">ptrace</span><span class="token punctuation">(</span><span class="token keyword">enum</span> __ptrace_request request<span class="token punctuation">,</span> pid_t pid<span class="token punctuation">,</span>
                <span class="token keyword">void</span> <span class="token operator">*</span>addr<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -530,8 +530,8 @@
 <pre class=" language-bash"><code class="language-bash">something to stdout
 system call invalid: write<span class="token punctuation">(</span>1<span class="token punctuation">)</span>: arg1<span class="token operator">=</span>2</code></pre>
 <p>我想要让这个程序更通用，比如通过<code>execve</code>替换进程为其他任意可执行程序，另外简单编写了一个a.cpp文件并编译为名为<code>a</code>的可执行文件：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h&gt;</span></span>
 using namespace std<span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">,</span> <span class="token string">"something to stdout\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -616,9 +616,9 @@ abnormal termination, signal number <span class="token operator">=</span> 31 cor
 <p>ptrace可以和seccomp配合使用，在某些系统调用处终止调用执行，并进行一些处理。</p>
 <p>大致思路是，儿子进程非法系统调用都注册为<code>SCMP_ACT_TRACE(getppid())</code>，父进程通过循环不停的continue进程和处理相关的系统调用，然后通过ptrace获取子进程的用户空间的寄存器值，从中读取出来非法的系统调用和对应的参数。</p>
 <p>首先增加下面三个头文件：</p>
-<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/ptrace.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/user.h></span> </span><span class="token comment" spellcheck="true">// 用户空间定义</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/reg.h></span>  </span><span class="token comment" spellcheck="true">// 寄存器定义</span>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/ptrace.h&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/user.h&gt;</span> </span><span class="token comment" spellcheck="true">// 用户空间定义</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;sys/reg.h&gt;</span>  </span><span class="token comment" spellcheck="true">// 寄存器定义</span>
 
 <span class="token comment" spellcheck="true">// 注意，网上很多资料针对的可能是老版本的linux内核，其在user.h中就包含了寄存器定义，</span>
 <span class="token comment" spellcheck="true">// 在较新的linux内核中要将上述两个头文件都包含进来</span></code></pre>
@@ -673,7 +673,7 @@ abnormal termination, signal number <span class="token operator">=</span> 31 cor
             <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token comment" spellcheck="true">// 判断是否是seccomp限制的规则，这个判断条件可以在ptrace文档中找到</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">>></span> <span class="token number">8</span> <span class="token operator">==</span> <span class="token punctuation">(</span>SIGTRAP <span class="token operator">|</span> <span class="token punctuation">(</span>PTRACE_EVENT_SECCOMP <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">&gt;&gt;</span> <span class="token number">8</span> <span class="token operator">==</span> <span class="token punctuation">(</span>SIGTRAP <span class="token operator">|</span> <span class="token punctuation">(</span>PTRACE_EVENT_SECCOMP <span class="token operator">&lt;&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">long</span> syscall<span class="token punctuation">;</span>
             syscall <span class="token operator">=</span> <span class="token function">ptrace</span><span class="token punctuation">(</span>PTRACE_PEEKUSER<span class="token punctuation">,</span> child<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span><span class="token operator">*</span>ORIG_RAX<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//            long arg0;</span>
@@ -1094,7 +1094,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.5k</span>&nbsp;字
+                class="white-color">78.8k</span>&nbsp;字
             
             
             
