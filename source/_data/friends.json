@@ -1,0 +1,72 @@
+[
+    {
+        "avatar": "http://images.keithschwarz.com/_photos/images/b3c2ac4d4dd7d34b9b0252be5a7b0f80.png",
+        "name": "Keith_Schwarz",
+        "introduction": "a senior lecturer in Stanford's CS department.",
+        "url": "http://www.keithschwarz.com/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://oldj.net/images/avatar_2016b.jpg",
+        "name": "oldj",
+        "introduction": "80后大叔，住在杭州。曾在阿里工作过，目前创业中。",
+        "url": "https://oldj.net/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://storage.virusdefender.net/blog/static/profile.png",
+        "name": "李同学",
+        "introduction": "qduoj开发者，长亭科技，信息安全",
+        "url": "https://strcpy.me/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://menci-oi.upyun.menci.memset0.cn/images/avatar.png",
+        "name": "Menci",
+        "introduction": "高中时就开发了meoeditor的神仙",
+        "url": "https://men.ci/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "http://gravatar.mirror.miskcoo.com/avatar/34c6c60c4ff819719dc66c54e57ad711?s=60&d=mm&r=g",
+        "name": "Miskcoo",
+        "introduction": "OI选手 && 清华选手",
+        "url": "http://blog.miskcoo.com/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://pic.cnblogs.com/avatar/1000678/20161001163750.png",
+        "name": "candy99",
+        "introduction": "OI选手 && 数学选手",
+        "url": "http://www.cnblogs.com/candy99/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://gravatar.loli.net/avatar/a5fea8485b10420f829613f3e7574ce9?s=256&d=mm&r=x",
+        "name": "11dimensions",
+        "introduction": "OI选手",
+        "url": "https://11dimensions.moe",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://profile.csdnimg.cn/C/1/F/3_wxh010910",
+        "name": "WXH",
+        "introduction": "国家队OI选手",
+        "url": "http://blog.csdn.net/wxh010910",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "https://taifua.com/wp-content/uploads/2019/09/default.jpg",
+        "name": "太傅",
+        "introduction": "",
+        "url": "https://taifua.com/",
+        "title": "前去学习"
+    },
+    {
+        "avatar": "http://image.luokangyuan.com/4027734.jpeg",
+        "name": "闪烁之狐",
+        "introduction": "编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬",
+        "url": "https://blinkfox.github.io/",
+        "title": "前去学习"
+    }
+]
