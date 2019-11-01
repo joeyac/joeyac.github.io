@@ -330,9 +330,9 @@
             
             <tag> CDQ分治 </tag>
             
-            <tag> 多项式求逆 </tag>
-            
             <tag> FFT </tag>
+            
+            <tag> 多项式求逆 </tag>
             
         </tags>
       
@@ -527,11 +527,11 @@
       
         <tags>
             
-            <tag> 图论 </tag>
-            
             <tag> 最小生成树 </tag>
             
             <tag> LCA </tag>
+            
+            <tag> 图论 </tag>
             
         </tags>
       
@@ -1495,9 +1495,9 @@
       
         <tags>
             
-            <tag> 总结 </tag>
-            
             <tag> DP </tag>
+            
+            <tag> 总结 </tag>
             
         </tags>
       
